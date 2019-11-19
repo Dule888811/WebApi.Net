@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="skolaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="predmet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="Naziv_predmeta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Sifru_predmeta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Kratak_opis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Labaratoriske_vezbe" Type="Boolean" />
+    <Property Name="Godina" Type="SByte" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="profesor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="Ime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Srednje_ime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Prezime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="datum_rodjenja" Type="DateTime" />
+    <Property Name="datum_postavljanja" Type="DateTime" />
+    <Property Name="naziv_predmeta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="slusa">
+    <Key>
+      <PropertyRef Name="naziv_predmeta" />
+      <PropertyRef Name="br_indexa" />
+    </Key>
+    <Property Name="naziv_predmeta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="br_indexa" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="srednje_ime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="datum_rodjenja" Type="DateTime" />
+    <Property Name="br_indexa" Type="Int32" />
+    <Property Name="jmbg" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="prezime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="studentcol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="skolaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="predmet" EntityType="Self.predmet" />
+    <EntitySet Name="profesor" EntityType="Self.profesor" />
+    <EntitySet Name="slusa" EntityType="Self.slusa" />
+    <EntitySet Name="student" EntityType="Self.student" />
+  </EntityContainer>
+</Schema>

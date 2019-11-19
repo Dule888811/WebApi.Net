@@ -1,0 +1,33 @@
+﻿$(document).ready(function () {
+    var profe = $('#profe');
+    $('#b').click(function () {
+        $.ajax({
+            type: 'GET',
+            url: "api/predmet",
+            dataType: "json",
+            success: function (data) {
+                profe.empty();
+                $.each(data, function (index, val) {
+                    profe.append('<li>' + val.Naziv_predmeta + '</li>' + '<input id="' + val.Naziv_predmeta + '"' + ' type="button" class="predmetDetalji" value="detalji" />')
+                });
+            }
+        });
+    });
+    $(".predmetDetalji")(data, function (index, val) {
+      
+         $(this).click(function () {
+            prompt(val.id);
+
+   /*     $.ajax({
+            type: 'GET',
+            url: "api/predmet/" + id + '"',
+            dataType: "json",
+            success: function (data) {
+                profe.empty();
+                $.each(data, function (index, val) {
+                    profe.append('<li>' + val.Naziv_predmeta + '</li>' + '<li>' + val.Godina + '</li>' + '<li>' + val.Sifru_predmeta + '</li>' + '<li>' + val.Kratak_opis + '</li>' + '<li>' + val.Labaratoriske_vezbe + '</li>' + '<input id="deleteId"   type="button" class="predmetDetalji" value="detalji" />')
+                });
+            } 
+        }); */
+    });
+});

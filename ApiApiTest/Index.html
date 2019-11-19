@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script src="Scripts/CallApi.js"></script>
+</head>
+<body>
+    <form action="#" id="createClass">
+        <label for="Naziv_predmeta">Naziv</label>
+        <input type="text" name="Naziv_predmeta" id="Naziv_predmeta"><br><br>
+        <label for="Sifru_predmeta">Sifra</label>
+        <input type="text" name="Sifru_predmeta" id="Sifru_predmeta"><br><br>
+        <label for="Kratak_opis">Opis</label>
+        <input type="text" name="Kratak_opis" id="Kratak_opis"><br><br>
+        <label for="godina">Godina</label>
+        <select name="godina" id="godina">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <label for="Labaratorijske_vezbe">Labaratorijske vezbe</label>
+        <select name="Labaratorijske_vezbe" id="Labaratorijske_vezbe">
+            <option value="1">da</option>
+            <option value="0">ne</option>
+        </select>
+        <input type="submit" id="dodajPredmet" value="Dodaj predmet">
+        <input id="editClass" type="button" value="izmeni" />
+    </form>
+    <input id="b" type="button" value="predmeti" />
+    <ul id="profe"></ul>
+
+    <form action="#" id="link">
+        <select id="sel"></select>
+        <input class="SubmitButton" type="submit" id="submitData" value="PrikaziPredmet" />
+    </form>
+    <form action="#" id="delete">
+        <select id="del"></select>
+        <input class="SubmitButton" type="submit" id="deleteData" value="Obrisi" />
+    </form>
+    <form action="#" id="edit">
+        <select id="fix"></select>
+        <input class="SubmitButton" type="submit" id="editData" value="Izmeni" />
+    </form>
+    <ul id="djaci"></ul>
+    <form action="#" id="showStudents">
+        <select id="show"></select>
+        <input class="SubmitButton" type="submit" id="showData" value="Studenti" />
+    </form>
+
+</body>
+</html>

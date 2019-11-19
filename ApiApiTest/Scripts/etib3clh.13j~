@@ -1,0 +1,155 @@
+﻿$(document).ready(function () {
+    var profe = $('#profe');
+    var sel = $('#sel');
+    var formLink = $('#link');
+    var formDelete = $('#delete');
+    var formEdit = $('#edit');
+    var del = $('#del');
+    var fix = $('#fix');
+    formLink.hide();
+    formEdit.hide();
+    formDelete.hide();
+  
+    $('#b').click(function () {
+        $.ajax({
+            type: 'GET',
+            url: "api/predmet",
+            dataType: "json",
+            success: function (data) {
+                sel.empty();
+                del.empty();
+                fix.empty();
+                formLink.show();
+                formEdit.show();
+                formDelete.show();
+                $.each(data, function (index, val) {
+                    sel.append('<option value ="' + val.id + '">' + val.Naziv_predmeta + '</option>')
+                    del.append('<option value ="' + val.id + '">' + val.Naziv_predmeta + '</option>')
+                    fix.append('<option value ="' + val.id + '">' + val.Naziv_predmeta + '</option>')
+                });
+            }
+        });
+    });
+    $("#submitData").click(function () {
+
+        var id = $('#sel').val();
+        $.ajax({
+            type: 'GET',
+            url: "api/predmet/" + id,
+            dataType: "json",
+            success: function (data) {
+                profe.empty();
+                profe.append('<li>' + data.Naziv_predmeta + '</li>' + '<li>' + data.Godina + '</li>' + '<li>' + data.Sifru_predmeta + '</li>' + '<li>' + data.Kratak_opis + '</li>' + '<li>' + data.Labaratoriske_vezbe + '</li>')        
+            }
+        });
+    
+
+    });
+    $("#edit").submit(function (event) {
+        event.preventDefault();
+        var id = $('#fix').val();
+        $.ajax({
+            type: 'GET',
+            url: "api/predmet/" + id,
+            dataType: "json",
+            success: function (data) {
+                $('#Naziv_predmeta').val(data.Naziv_predmeta);
+                $('#Godina').val(data.Godina);
+                $('#Sifru_predmeta').val(data.Sifru_predmeta);
+                $('#Kratak_opis').val(data.Kratak_opis);
+                $('#Labaratoriske_vezbe').val(data.Labaratoriske_vezbe);
+            }
+        });
+        $("#editClass").click(function () {
+            var idClass = $('#fix').val();
+            var Naziv_predmeta = $('#Naziv_predmeta');
+            var Sifru_predmeta = $('#Sifru_predmeta');
+            var Kratak_opis = $('#Kratak_opis');
+            var godina = $('#godina');
+            var Labaratorijske_vezbe = $('#Labaratorijske_vezbe');
+            var order = {
+                Naziv_predmeta: Naziv_predmeta.val(),
+                Sifru_predmeta: Sifru_predmeta.val(),
+                Kratak_opis: Kratak_opis.val(),
+                godina: godina.val(),
+                Labaratorijske_vezbe: Labaratorijske_vezbe.val(),
+            }
+            $.ajax({ url: 'api/predmet/' + idClass, method: 'PUT', data: order })
+                .then(function (data) {
+                    alert('Uspeno promenjeni podaci');
+            });
+        })
+    });
+    $("#delete").submit(function (event) {
+        event.preventDefault();
+        var idDel = $('#del').val();
+        $.ajax({ url: `api/predmet/` + idDel, method: "DELETE" })
+            .then(function (data) {
+                prompt('yes');
+            });
+    });
+        $("#createClass").submit(function (event) {
+            event.preventDefault();
+            var Naziv_predmeta = $('#Naziv_predmeta');
+            var Sifru_predmeta = $('#Sifru_predmeta');
+            var Kratak_opis = $('#Kratak_opis');
+            var godina = $('#godina');
+            var Labaratorijske_vezbe = $('#Labaratorijske_vezbe');
+            var order = {
+                Naziv_predmeta: Naziv_predmeta.val(),
+                Sifru_predmeta: Sifru_predmeta.val(),
+                Kratak_opis: Kratak_opis.val(),
+                godina: godina.val(),
+                Labaratorijske_vezbe: Labaratorijske_vezbe.val(),
+            }
+            $.ajax({ url: 'api/predmet', method: 'POST', data: order })
+                .then(function (data) {
+                    alert('predmet je dodat');
+                }); 
+          
+           
+
+           }); 
+     /*   $.ajax({
+            type = 'DELETE',
+            contentType: "application/json",
+            url = "api/predmet/" + idDel,
+            dataType: "json",
+            success: function (data) {
+                alert('obrisan predmet');
+            }
+        }); */
+        
+    });
+    
+
+
+ /*   function find() {
+        var id = $('#prodId').val();
+        $.getJSON(apiUrl + '/' + id)
+            .done(function (data) {
+                $('#product').text(formatItem(data));
+            })
+            .fail(function (jqXHR, textStatus, err) {
+                $('#product').text('Error: ' + err);
+            });
+    }
+
+ /*   $(".predmetDetalji").each( function (index, val) {
+      
+         $(this).click(function () {
+            prompt(val.id);
+         });
+   /*     $.ajax({
+            type: 'GET',
+            url: "api/predmet/" + id + '"',
+            dataType: "json",
+            success: function (data) {
+                profe.empty();
+                $.each(data, function (index, val) {
+                    profe.append('<li>' + val.Naziv_predmeta + '</li>' + '<li>' + val.Godina + '</li>' + '<li>' + val.Sifru_predmeta + '</li>' + '<li>' + val.Kratak_opis + '</li>' + '<li>' + val.Labaratoriske_vezbe + '</li>' + '<input id="deleteId"   type="button" class="predmetDetalji" value="detalji" />')
+                });
+            } 
+        }); */
+  //  }); 
+

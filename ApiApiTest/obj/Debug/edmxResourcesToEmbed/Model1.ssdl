@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="skolaModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="predmet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="Naziv_predmeta" Type="varchar" MaxLength="30" />
+    <Property Name="Sifru_predmeta" Type="varchar" MaxLength="30" />
+    <Property Name="Kratak_opis" Type="varchar" MaxLength="50" />
+    <Property Name="Labaratoriske_vezbe" Type="bool" />
+    <Property Name="Godina" Type="tinyint" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="profesor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="Ime" Type="varchar" MaxLength="20" />
+    <Property Name="Srednje_ime" Type="varchar" MaxLength="20" />
+    <Property Name="Prezime" Type="varchar" MaxLength="20" />
+    <Property Name="datum_rodjenja" Type="date" />
+    <Property Name="datum_postavljanja" Type="date" />
+    <Property Name="naziv_predmeta" Type="varchar" MaxLength="30" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="slusa">
+    <Key>
+      <PropertyRef Name="naziv_predmeta" />
+      <PropertyRef Name="br_indexa" />
+    </Key>
+    <Property Name="naziv_predmeta" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="br_indexa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ime" Type="varchar" MaxLength="20" />
+    <Property Name="srednje_ime" Type="varchar" MaxLength="20" />
+    <Property Name="datum_rodjenja" Type="date" />
+    <Property Name="br_indexa" Type="int" />
+    <Property Name="jmbg" Type="varchar" MaxLength="13" />
+    <Property Name="prezime" Type="varchar" MaxLength="20" />
+    <Property Name="studentcol" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'slusa_fk_1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="slusa_fk_1" />-->
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'slusa_fk_2' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="slusa_fk_2" />-->
+  <EntityContainer Name="skolaModelStoreContainer">
+    <EntitySet Name="predmet" EntityType="Self.predmet" Schema="skola" store:Type="Tables" />
+    <EntitySet Name="profesor" EntityType="Self.profesor" Schema="skola" store:Type="Tables" />
+    <EntitySet Name="slusa" EntityType="Self.slusa" Schema="skola" store:Type="Tables" />
+    <EntitySet Name="student" EntityType="Self.student" Schema="skola" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script src="Scripts/CallApi.js"></script>
+</head>
+<body>
+    <form action="/action_page.php">
+        Naziv predmeta:<br>
+        <input type="text" name="Naziv_predmeta" value="Naziv"><br>
+        Sifru predmeta:<br>
+        <input type="text" name="Sifru_predmeta" value="sifra"><br><br>
+        Kratak opis:<br />
+        <input type="text" name="Kratak_opis" value="opis"><br><br>
+        <select name="godina">
+            <option value="prva">1</option>
+            <option value="druga">2</option>
+            <option value="treca">3</option>
+            <option value="cetvrta">4</option>
+        </select>
+        <select name="Labaratorijske vezbe">
+            <option value="1">da</option>
+            <option value="0">ne</option>
+        </select>
+        <input type="submit" value="Dodaj predmet">
+    </form>
+    <input id="b" type="button" value="profesori" />
+    <ul id="profe"></ul>
+
+    <form action="#" id="link">
+        <select id="sel"></select>
+        <input class="SubmitButton" type="submit" id="submitData" value="Submit" />
+    </form>
+    <form action="#" id="delete">
+        <select id="del"></select>
+        <input class="SubmitButton" type="submit" id="deleteData" value="Obrisi" />
+    </form>
+    <form action="#" id="edit">
+        <select id="fix"></select>
+        <input class="SubmitButton" type="submit" id="editData" value="Izmeni" />
+    </form>
+</body>
+</html>

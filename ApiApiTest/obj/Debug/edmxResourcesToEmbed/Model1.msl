@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="skolaModelStoreContainer" CdmEntityContainer="skolaEntities">
+    <EntitySetMapping Name="predmet">
+      <EntityTypeMapping TypeName="skolaModel.predmet">
+        <MappingFragment StoreEntitySet="predmet">
+          <ScalarProperty Name="Naziv_predmeta" ColumnName="Naziv_predmeta" />
+          <ScalarProperty Name="Sifru_predmeta" ColumnName="Sifru_predmeta" />
+          <ScalarProperty Name="Kratak_opis" ColumnName="Kratak_opis" />
+          <ScalarProperty Name="Labaratoriske_vezbe" ColumnName="Labaratoriske_vezbe" />
+          <ScalarProperty Name="Godina" ColumnName="Godina" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="profesor">
+      <EntityTypeMapping TypeName="skolaModel.profesor">
+        <MappingFragment StoreEntitySet="profesor">
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Srednje_ime" ColumnName="Srednje_ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="datum_rodjenja" ColumnName="datum_rodjenja" />
+          <ScalarProperty Name="datum_postavljanja" ColumnName="datum_postavljanja" />
+          <ScalarProperty Name="naziv_predmeta" ColumnName="naziv_predmeta" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="slusa">
+      <EntityTypeMapping TypeName="skolaModel.slusa">
+        <MappingFragment StoreEntitySet="slusa">
+          <ScalarProperty Name="naziv_predmeta" ColumnName="naziv_predmeta" />
+          <ScalarProperty Name="br_indexa" ColumnName="br_indexa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="student">
+      <EntityTypeMapping TypeName="skolaModel.student">
+        <MappingFragment StoreEntitySet="student">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ime" ColumnName="ime" />
+          <ScalarProperty Name="srednje_ime" ColumnName="srednje_ime" />
+          <ScalarProperty Name="datum_rodjenja" ColumnName="datum_rodjenja" />
+          <ScalarProperty Name="br_indexa" ColumnName="br_indexa" />
+          <ScalarProperty Name="jmbg" ColumnName="jmbg" />
+          <ScalarProperty Name="prezime" ColumnName="prezime" />
+          <ScalarProperty Name="studentcol" ColumnName="studentcol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

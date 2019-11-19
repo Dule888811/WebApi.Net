@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script src="Scripts/CallApi.js"></script>
+</head>
+<body>
+    <input id="b" type="button" value="profesori" />
+    <ul id="profe"></ul>
+
+    <form action="#" id="link">
+        <select id="sel"></select>
+        <input class="SubmitButton" type="submit" id="submitData"  value="Submit" />
+    </form>
+    <form action="#" id="delete">
+        <select id="del"></select>
+        <input class="SubmitButton" type="submit" id="submitData"  value="Obrisi" />
+    </form>
+    <form action="#" id="edit">
+        <select id="fixing"></select>
+        <input class="SubmitButton" type="submit" id="submitData"  value="Izmeni" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,14 @@
+﻿$(document).ready(function () {
+    var profe = $('#profe');
+    $('#b').click(function () {
+        $.ajax({
+            type: 'GET',
+            url: "api/predmet",
+            dataType: "json",
+            success: function (data) {
+                $.each(data, function (index, val) {
+                    profe.append(<li>val.Naziv_predmeta</li>)
+                });
+            }
+        });
+    });
