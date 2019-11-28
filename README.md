@@ -9,4 +9,6 @@ and edit the properties of the class by clicking the edit button.
 Clicking the "Studenti" button will show all students who are listening 
 to the course.Database firts my approach. I used reposotory patern for aplication.
 I used repository pattern,mysql database,database first approach.
-Technologies:c#,Jquer</p>
+Technologies:
++ c#
++ Jquery</p>
